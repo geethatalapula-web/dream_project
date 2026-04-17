@@ -1,0 +1,118 @@
+<html>
+<head>
+  <title>DOB and character</title>
+</head>
+<style>
+  h1{
+    text-align:center;
+    justify-content:center;
+  }
+  input{
+    text-align:center;
+    
+    padding:10px;
+    font-size:16px;
+    border:20x;
+    border-radius:8px;
+    margin:0 ;
+    align-items: center;
+    margin-left:600px;
+    color:lavender;
+    background-color:black
+  
+  }
+  button{
+     padding:10px;
+    font-size:16px;
+    border:20x;
+    border-radius:8px;
+    margin:100px;
+    margin-left:2px;
+    margin-left:100px;
+    background-color:black;
+    color:aquamarine
+
+  }
+  body{
+    background: linear-gradient(turquoise,mistyrose,lavender);
+  }
+  
+</style>
+<body>
+  
+  <h1> ENTER YOUR DATE OF BIRTH</h1> 
+   
+  <input type="date" id="dob">
+  
+  
+  <button onclick="checkCharacter()">Check</button>
+
+  <p id="result"></p>
+  
+
+  <script>
+    function checkCharacter() {
+      let dob = document.getElementById("dob").value;
+
+      if (!dob) {
+        document.getElementById("result").innerHTML = "Please select your DOB!";
+        document.getElementById("result").style.backgroundColor="yellow";
+        return;
+      }
+
+      let date = new Date(dob);
+      let month = date.getMonth() + 1; 
+      let day = date.getDate();
+
+      let character = "";
+      let zodiac="";
+
+  
+      if ((month == 3 && day>=21)||(month==4 && day<=19)){
+        character = "You are Ambitious and Strong-willed ";
+        zodiac="aries(mesha rashi)";
+      } else if ((month == 4&& day>=20)||(month==5 && day<=20)) {
+        character = "You are Kind-hearted and Creative ";
+        zodiac="taurus (vrshabha rashi)";
+      } else if ((month == 5 && day>=21)||(month==6 && day<=20)) {
+        character = "You are Energetic and Friendly ";
+        zodiac="gemini (mithuna rashi)";
+      } else if ((month == 6 && day>=21)||(month==7 && day<=22)) {
+        character = "You are Honest and Loyal ";
+        zodiac="cancer(karkataka rashi)";
+      } else if ((month == 7 && day>=23)||(month==8 && day<=22)) {
+        character = "You are Smart and Curious ";
+        zodiac="leo(simha raasi)";
+      } else if ((month == 8 && day>=23)||(month==9 && day<=23)) {
+        character = "You are Caring and Helpful ";
+        zodiac="virgo(kanya rashi)";
+      } else if ((month == 9 && day>=23)||(month==10 && day<=22)) {
+        character = "You are Confident and Brave ";
+        zodiac="libra(tula rashi)"
+      } else if ((month == 10 && day>=23)||(month==11 && day<=21)) {
+        character = "You are Leader-like and Motivated ";
+        zodiac="scorpion(vrischika rashi)";
+      } else if ((month == 11 && day>=22)||(month==12&& day<=21)) {
+        character = "You are Calm and Intelligent ";
+        zodiac="sagittarius(dhanus rashi)"
+      } else if ((month == 12 && day>=22)||(month==1 && day<=19)) {
+        character = "You are Charming and Balanced ";
+        zodiac="capricon(makara rashi)";
+      } else if ((month == 1 && day>=20)||(month==2 && day<=18)) {
+        character = "You are Passionate and Determined ";
+        zodiac="aquarius(kumbha raasi)";
+      } else if ((month == 2 && day>=19)||(month==3 && day<=20)) {
+        character = "You are Cheerful and Generous ";
+        zodiac="pisces(meena rashi)";
+      } else {
+        character = "Invalid DOB!";
+      }
+
+      document.getElementById("result").innerHTML =
+        "DOB: " + date.toDateString() + "<br> "+ "Character: " + character + "<br>" + "zodiac: " +zodiac;
+     
+      document.getElementById("result").style.color="green";
+    }
+  </script>
+</body>
+</html>
